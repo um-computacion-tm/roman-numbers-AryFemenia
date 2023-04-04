@@ -1,25 +1,43 @@
-#tests
 import unittest
+
+#tests
 def decimal_to_roman(decimal):
+    resultado = ''
+    if decimal >= 1000:
+        resultado = 'M'
+        decimal -= 1000
+    if decimal >= 100:
+        centenas = decimal // 100
+        decimal -= centenas * 100
+        if centenas <= 3:
+            centenas = 'C' * centenas
+        elif centenas == 4:
+            centenas += 'CD'
+        elif centenas <= 8:
+            centenas += 'D' + (centenas - 5) * 'C'
+        elif centenas <= 9:
+            resultado += 'CM'
     if decimal <= 3:
         return 'I' * decimal
     elif decimal == 4:
         return 'IV'
-    elif decimal == 5:
-        return 'V'
-    elif decimal == 6:
-        return 'VI'
+    elif decimal <= 8:
+        resultado += 'V' + (decimal - 5) * 'I'
     elif decimal == 9:
         return 'IX'
     elif decimal == 10:
         return 'X'
     else:
-        return 'test'
+        return resultado
 
 #codigo
-class TestDEcimalToRoman(unittest.TestCase):
+class TestDecimalToRoman(unittest.TestCase):
     def test_uno(self):
+        # pre condicion
+        ### NO HAY ###
+        # proceso
         resultado = decimal_to_roman(1)
+        # verificacion
         self.assertEqual(resultado, 'I')
     def test_dos(self):
         resultado = decimal_to_roman(2)

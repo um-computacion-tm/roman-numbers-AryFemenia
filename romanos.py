@@ -1,4 +1,4 @@
-#DEC TO ROM
+#DEC -> ROM
 def decimal_to_roman(decimal):
     val = [
         (1000, 'M'),
@@ -31,7 +31,7 @@ def decimal_to_roman(decimal):
 #  a continuacion a "decimal" le va a restar el numero correspondiente a la letra asignada en la linea anterior
 #  devuelve el valor asignado a "roman" para que en la pasada siguiente(si es que existe) se valla sumando el valor
 
-#ROM TO DEC
+#ROM -> DEC
 def roman_to_decimal(roman):
     dictionary = {
         'I': 1, 

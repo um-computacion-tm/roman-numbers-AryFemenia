@@ -41,25 +41,25 @@ def roman_to_decimal(roman):
         'C': 100, 
         'D': 500, 
         'M': 1000}
-    resultado = 0
+    total = 0
     prev = 0
     for word in roman[::-1]:
         num = dictionary[word]
         if num < prev:
-            resultado -= num
+            total -= num
         else:
-            resultado += num
+            total += num
         prev = num
-    return resultado
+    return total
 
 # se le pasa el valor "roman"
 # recorre la lista leyendo el "dictionary"
-# limpia las variables "resultado" y "prev"
+# limpia las variables "total" y "prev"
 # lee el valor "roman" al reves
 # asigna al valor "num" el correspondiente a "dictionary" en la posicion "word"
 # si el valor "num" es menor a "prev"
-# asgina a "resultado" el valor "resultado" - "num"(para descontar el asignado en la linea de "num")
+# asgina a "total" el valor "total" - "num"(para descontar el asignado en la linea de "num")
 # si el valor "num" es mayor o igual a "prev"
-# asgina a "resultado" el valor "resultado" + "num"(para agregar el asignado en la linea de "num")
+# asgina a "total" el valor "total" + "num"(para agregar el asignado en la linea de "num")
 # asigna a "prev" el valor "num" que acabo de analizar
-# devuelve la suma guardada en "resultado"
+# devuelve la suma guardada en "total"

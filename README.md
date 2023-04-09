@@ -1,3 +1,4 @@
-Trabajo de:
-romanos a decimal
-decimal a romanos
+#Conversor de numeros
+### ´Modos´
+1) decimal a romano
+2) romano a decimal

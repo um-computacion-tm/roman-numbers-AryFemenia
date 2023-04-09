@@ -1,7 +1,8 @@
+#IMPORTS
 import unittest
-
 from romanos import decimal_to_roman, roman_to_decimal
 
+#TEST DEC TO ROM
 class TestDecimalToRoman(unittest.TestCase):
     def test_1(self):
         resultado = decimal_to_roman(1)
@@ -33,8 +34,36 @@ class TestDecimalToRoman(unittest.TestCase):
     def test_10(self):
         resultado = decimal_to_roman(10)
         self.assertEqual(resultado, 'X')
+    def test_50(self):
+        resultado = decimal_to_roman(50)
+        self.assertEqual(resultado, 'L')
+    def test_90(self):
+        resultado = decimal_to_roman(90)
+        self.assertEqual(resultado, 'XC')
+    def test_100(self):
+        resultado = decimal_to_roman(100)
+        self.assertEqual(resultado, 'C')
+    def test_101(self):
+        resultado = decimal_to_roman(101)
+        self.assertEqual(resultado, 'CI')
+    def test_123(self):
+        resultado = decimal_to_roman(123)
+        self.assertEqual(resultado, 'CXXIII')
+    def test_456(self):
+        resultado = decimal_to_roman(456)
+        self.assertEqual(resultado, 'CDLVI')
+    def test_987(self):
+        resultado = decimal_to_roman(987)
+        self.assertEqual(resultado, 'CMLXXXVII')    
+    def test_1000(self):
+        resultado = decimal_to_roman(1000)
+        self.assertEqual(resultado, 'M')
 
+#TEST ROM TO DEC
 class TestRomanToDecimal(unittest.TestCase):
+    def test_CXXIII(self):
+        resultado = roman_to_decimal('CXXIII')
+        self.assertEqual(resultado, 123)
     def test_I(self):
         resultado = roman_to_decimal('I')
         self.assertEqual(resultado, 1)
@@ -57,14 +86,15 @@ class TestRomanToDecimal(unittest.TestCase):
         resultado = roman_to_decimal('VII')
         self.assertEqual(resultado, 7)
     def test_VIII(self):
-        resultado = roman_to_decimal(8)
-        self.assertEqual(resultado, 'VIII')
+        resultado = roman_to_decimal('VIII')
+        self.assertEqual(resultado, 8)
     def test_IX(self):
-        resultado = roman_to_decimal(9)
-        self.assertEqual(resultado, 'IX')
+        resultado = roman_to_decimal('IX')
+        self.assertEqual(resultado, 9)
     def test_X(self):
-        resultado = roman_to_decimal(10)
-        self.assertEqual(resultado, 'X')
+        resultado = roman_to_decimal('X')
+        self.assertEqual(resultado, 10)
 
+#TEST START
 if __name__ == '__main__':
     unittest.main()
